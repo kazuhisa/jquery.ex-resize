@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8">
+		<title>resize event のデモページ</title>
+		<link rel="stylesheet" type="text/css" href="./demo.css"/>
+		<style>
+			h2{
+				margin:16px 0 8px 0;
+			}
+			div.body{
+				overflow:hidden;
+				zoom:1;
+			}
+			div.main{
+				float:right;
+				width:66%;
+				overflow:hidden;
+			}
+			div.sub{
+				float:left;
+				width:31%;
+				overflow:hidden;
+				border-right:solid 1px #e0e0e0;
+			}
+			div.todo{
+				display:inline-block;
+				/display:inline;
+				/zoom:1;
+			}
+			ul.todo{
+				margin:16px 0;
+				padding:0;
+				background:#ffffdd;
+				border:dotted 2px #ffaaaa;
+			}
+			ul.todo li{
+				margin:0;
+				padding:0;
+				list-style:none;
+			}
+			ul.todo li a,
+			ul.todo li a:visited{
+				margin-right:4px;
+				color:#ff5577;
+				text-decoration:none;
+				font-weight:900;
+			}
+			ul.log{
+				background:#ffffdd;
+			}
+
+		</style>
+		<script type="text/javascript" src="./jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="./jquery.exresize.0.1.0.js"></script>
+		<script>
+			jQuery(function($){
+				$('#add').click(function(){
+					var act = $('#action').val();
+					if(act){
+						$('ul.todo').append('<li><a class="del" href="javascript:void(0)">×</a>' + act + '</li>');
+					}
+				})
+				$('a.del').live('click',function(){
+					$(this).parent().remove();
+				})
+				$('ul.todo').resize(function(){
+						$('ul.log').prepend('<li>resize!</li>')
+				})
+			});
+		</script>
+	</head>
+	<body>
+		<div class="header">
+			<h1>resize event のデモページ</h1>
+		</div>
+		<div class="body">
+			<div class="main">
+				<h2>resize log</h2>
+				<ul class="log"></ul>
+			</div>
+			<div class="sub">
+				<h2>TODO</h2>
+				<nobr><input id="action" value="jQuery mobile の勉強"/><button id="add">登録</button></nobr><br/>
+				<div class="todo">
+					<ul class="todo">
+						<li><a class="del" href="javascript:void(0)">×</a>Java の勉強</li>
+						<li><a class="del" href="javascript:void(0)">×</a>Oracle の勉強</li>
+						<li><a class="del" href="javascript:void(0)">×</a>JavaScript の勉強</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<a class="article" href="http://d.hatena.ne.jp/cyokodog/">Cyokodog::Diary</a>
+		</div>
+	</body>
+</html>

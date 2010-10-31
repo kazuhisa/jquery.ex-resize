@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8">
+		<title>exResize + Expand Header :: Demo</title>
+		<link rel="stylesheet" type="text/css" href="./demo.css"/>
+		<link rel="stylesheet" type="text/css" href="./todo.css"/>
+		<style>
+			cdiv.body{
+				overflow:hidden;
+				zoom:1;
+			}
+			div.header{
+				background-color:transparent;
+			}
+			div.opacity{
+				background:#505050;
+			}
+			div.todo{
+				margin:0 auto;
+				padding:1em 16px;
+				width:850px;
+				text-align:right;
+				background:#585858;
+				color:#a0a0a0;
+				font-weight:bold;
+			}
+			input.action{
+				padding:4px;
+				border:solid 1px #000;
+				background:#333;
+				color:#aaa;
+			}
+		</style>
+		<script type="text/javascript" src="./jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="./jquery.exresize.0.1.0.js"></script>
+		<script type="text/javascript" src="./jquery.exfixed.1.3.0rc1.js"></script>
+		<script type="text/javascript" src="./todo.js"></script>
+		<script>
+			jQuery(function($){
+				$('div.opacity').css('opacity',.9);
+				var target = $('div.header')
+				target
+					.exFixed({
+						width : '100%',
+						height : 'auto',
+						top : 0,
+						left : 0
+					})
+					.exResize((function(){
+						$('body').css({'padding-top':target.outerHeight()});
+						return arguments.callee;
+					})());
+			});
+		</script>
+	</head>
+	<body>
+		<div class="header">
+			<div class="opacity">
+				<h1>exResize + Expand Header :: Demo</h1>
+				<div class="todo">
+					<nobr>TODO : <input class="action" value="jQuery mobile の勉強"/><button class="add">登録</button></nobr><br/>
+					<div class="todo-box">
+						<ul class="todo">
+							<li><a class="del" href="javascript:void(0)">×</a>Java の勉強</li>
+							<li><a class="del" href="javascript:void(0)">×</a>Oracle の勉強</li>
+							<li><a class="del" href="javascript:void(0)">×</a>JavaScript の勉強</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="body">
+			<h2>CONTENTS</h2>
+			<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam quis mi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse semper, libero nec adipiscing pretium, lacus nulla adipiscing eros, eget hendrerit quam tellus id ligula. Curabitur auctor. Nulla facilisi. Fusce imperdiet ante vitae diam. Suspendisse potenti. Suspendisse consectetuer. Praesent ultricies, sapien tempor mattis ultrices, est odio suscipit elit, ac molestie augue augue a odio. Suspendisse potenti.</p>
+			<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam quis mi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse semper, libero nec adipiscing pretium, lacus nulla adipiscing eros, eget hendrerit quam tellus id ligula. Curabitur auctor. Nulla facilisi. Fusce imperdiet ante vitae diam. Suspendisse potenti. Suspendisse consectetuer. Praesent ultricies, sapien tempor mattis ultrices, est odio suscipit elit, ac molestie augue augue a odio. Suspendisse potenti.</p>
+			<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam quis mi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse semper, libero nec adipiscing pretium, lacus nulla adipiscing eros, eget hendrerit quam tellus id ligula. Curabitur auctor. Nulla facilisi. Fusce imperdiet ante vitae diam. Suspendisse potenti. Suspendisse consectetuer. Praesent ultricies, sapien tempor mattis ultrices, est odio suscipit elit, ac molestie augue augue a odio. Suspendisse potenti.</p>
+			<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam quis mi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse semper, libero nec adipiscing pretium, lacus nulla adipiscing eros, eget hendrerit quam tellus id ligula. Curabitur auctor. Nulla facilisi. Fusce imperdiet ante vitae diam. Suspendisse potenti. Suspendisse consectetuer. Praesent ultricies, sapien tempor mattis ultrices, est odio suscipit elit, ac molestie augue augue a odio. Suspendisse potenti.</p>
+			<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam quis mi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse semper, libero nec adipiscing pretium, lacus nulla adipiscing eros, eget hendrerit quam tellus id ligula. Curabitur auctor. Nulla facilisi. Fusce imperdiet ante vitae diam. Suspendisse potenti. Suspendisse consectetuer. Praesent ultricies, sapien tempor mattis ultrices, est odio suscipit elit, ac molestie augue augue a odio. Suspendisse potenti.</p>
+			<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam quis mi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse semper, libero nec adipiscing pretium, lacus nulla adipiscing eros, eget hendrerit quam tellus id ligula. Curabitur auctor. Nulla facilisi. Fusce imperdiet ante vitae diam. Suspendisse potenti. Suspendisse consectetuer. Praesent ultricies, sapien tempor mattis ultrices, est odio suscipit elit, ac molestie augue augue a odio. Suspendisse potenti.</p>
+			<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam quis mi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse semper, libero nec adipiscing pretium, lacus nulla adipiscing eros, eget hendrerit quam tellus id ligula. Curabitur auctor. Nulla facilisi. Fusce imperdiet ante vitae diam. Suspendisse potenti. Suspendisse consectetuer. Praesent ultricies, sapien tempor mattis ultrices, est odio suscipit elit, ac molestie augue augue a odio. Suspendisse potenti.</p>
+		</div>
+		<div class="footer">
+			<a class="article" href="http://d.hatena.ne.jp/cyokodog/">Cyokodog::Diary</a>
+		</div>
+	</body>
+</html>
