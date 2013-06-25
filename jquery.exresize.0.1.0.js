@@ -42,7 +42,7 @@
 		c.targets = targets;
 		c.target = c.watchTarget = c.targets.eq(idx);
 		c.index = idx;
-		//c.oldBrowser = $.browser.msie && ($.browser.version < 8.0 || !$.boxModel);
+		c.oldBrowser = $.browser.msie && ($.browser.version < 8.0 || !$.boxModel);
 		c.key = { height : '', width : ''};
 		if (c.contentsWatch) {
 			o._createContentsWrapper();
